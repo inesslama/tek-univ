@@ -1,0 +1,42 @@
+﻿@model IEnumerable<StudentManagementNV.Models.Subject>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin2.cshtml";
+}
+<br /><br /><br /><br />
+
+
+                  <p style="margin-left:550px">
+                      <h4 style="color: darkslategray;margin-left:550px">
+                          @Html.ActionLink("Create New Subject", "Create")
+                          </h4>
+                  </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class.ClassName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class.ClassName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SubjectId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SubjectId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SubjectId })
+        </td>
+    </tr>
+}
+
+</table>

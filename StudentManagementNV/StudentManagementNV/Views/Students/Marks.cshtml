@@ -1,0 +1,67 @@
+﻿@model IEnumerable<StudentManagementNV.Models.Exam>
+
+@{
+    ViewBag.Title = "Marks";
+    Layout = "~/Views/Shared/_LayoutLOGED3.cshtml";
+}
+
+<h2>Marks</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<br /><br />
+      <div class="limiter">
+          <div class="container-table100">
+              <div class="wrap-table100">
+                  <table class="table" style="margin-left:30px">
+                      <tr>
+                          <th>
+                              @Html.DisplayNameFor(model => model.RollNo)
+                          </th>
+                          <th>
+                              @Html.DisplayNameFor(model => model.TotalMarks)
+                          </th>
+                          <th>
+                              @Html.DisplayNameFor(model => model.OutOfMarks)
+                          </th>
+                          <th>
+                              @Html.DisplayNameFor(model => model.Class.ClassName)
+                          </th>
+                          <th>
+                              @Html.DisplayNameFor(model => model.Subject.SubjectName)
+                          </th>
+                          <th></th>
+                      </tr>
+
+                      @foreach (var item in Model)
+                      {
+                          <tr>
+                              <td>
+                                  @Html.DisplayFor(modelItem => item.RollNo)
+                              </td>
+                              <td>
+                                  @Html.DisplayFor(modelItem => item.TotalMarks)
+                              </td>
+                              <td>
+                                  @Html.DisplayFor(modelItem => item.OutOfMarks)
+                              </td>
+                              <td>
+                                  @Html.DisplayFor(modelItem => item.Class.ClassName)
+                              </td>
+                              <td>
+                                  @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+                              </td>
+                              <td>
+                                  @Html.ActionLink("Edit", "Edit", new { id = item.ExamId }) |
+                                  @Html.ActionLink("Details", "Details", new { id = item.ExamId }) |
+                                  @Html.ActionLink("Delete", "Delete", new { id = item.ExamId })
+                              </td>
+                          </tr>
+                      }
+
+                  </table>
+                  </div>
+              </div>
+          </div>
+

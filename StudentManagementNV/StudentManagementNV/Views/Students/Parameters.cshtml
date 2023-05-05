@@ -1,0 +1,190 @@
+﻿@model StudentManagementNV.Models.Student
+@{
+    ViewBag.Title = "Parameters";
+    Layout = "~/Views/Shared/_LayoutLOGED3.cshtml";
+}
+
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+}
+    
+        <section class="vh-100">
+            <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="~/assets/img/conf.jpg"
+                             class="img-fluid" alt="Sample image">
+                    </div>
+                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                        <form runat="server">
+
+                            <div class="form-outline mb-4">
+                                <h4 style="color:lightslategray">You can change your data</h4>
+                                <hr style="color:cornflowerblue"/>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.StudentId)
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.ClassId, "ClassId", htmlAttributes: new { @class = "control-label col-md-2 " })*@
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("ClassId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger " })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.RollNo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.RollNo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RollNo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @*<button type="submit" value="Save" class="btn btn-block btn-default " style="padding-left: 2.5rem; padding-right: 2.5rem; color:cornflowerblue"></button>*@
+                                        <input type="submit" value="Save" class="btn btn-block btn-default" style="padding-left: 2.5rem; padding-right: 2.5rem; " />
+                                        @Html.ActionLink("Exit", "Index")
+                                    </div>
+                                </div>
+                            </div>
+                            <br /><br />
+                           
+                            <div>
+                              
+                            </div>
+                            </form>
+                            </div>
+                    </div>
+                </div>
+            </section>
+       
+               
+
+                            <!--<main id="main">
+
+
+                                <section class="vh-100">
+                                    <div class="container-fluid h-custom">
+                                        <div class="row d-flex justify-content-center align-items-center h-100">
+                                            <div class="col-md-9 col-lg-6 col-xl-5">
+                                                <img src="~/assets/img/conf.jpg"
+                                                     class="img-fluid" alt="Sample image">
+                                            </div>
+                                            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                                                <form runat="server">-->
+                            <!-- Email input -->
+                            <!--<div class="form-outline mb-4">
+
+                                <input ID="name2"
+                                       placeholder="to modify , enter your roll number " runat="server" class="form-control form-control-lg"></input>
+
+                            </div>
+
+                            <div class="form-outline mb-4">
+
+                                <input ID="dateob2"
+                                       placeholder="Enter your new date of birth  " runat="server" class="form-control form-control-lg"></input>
+
+                            </div>-->
+                            <!-- Password input -->
+                            <!--<div class="form-outline mb-3">
+
+                                                    <input ID="number2"
+                                                           placeholder="Enter your new mobile number" runat="server" class="form-control form-control-lg"></input>
+                                                </div>
+                                                <div class="form-outline mb-3">
+
+                                                    <input ID="address2"
+                                                           placeholder="Enter your new address" runat="server" class="form-control form-control-lg"></input>
+                                                </div>
+                                                <div class="form-outline mb-3">
+
+                                                    <input ID="email2"
+                                                           placeholder="Enter your new email" runat="server" class="form-control form-control-lg"></input>
+                                                </div>
+                                                <div class="form-outline mb-3">
+
+                                                    <input ID="password2"
+                                                           placeholder="Enter your new password" runat="server" class="form-control form-control-lg"></input>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+
+                                                </div>
+
+                                                <div class="text-center text-lg-start mt-4 pt-2">
+
+                                                    <button ID="modify" Style="padding-left: 2.5rem; padding-right: 2.5rem; margin-left: 130px" runat="server" Text="modify" class="btn btn-primary btn-lg"
+                                                            type="button-log" OnClick="modify_Click" />
+
+
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </section>-->

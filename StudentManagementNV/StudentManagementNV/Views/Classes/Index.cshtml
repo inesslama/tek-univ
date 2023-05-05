@@ -1,0 +1,98 @@
+﻿@model IEnumerable<StudentManagementNV.Models.Class>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin2.cshtml";
+}
+
+<br />
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                
+                    <h5 style="color: darkslategray">
+
+                        @Html.ActionLink("Create New Class", "Create")
+                    </h5>
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table" style="margin-left:30px">
+                        <thead class="thead-primary" style="margin-left:30px">
+                            <tr>
+                                <th> <h5 style="margin-left:100px ;color:white">@Html.DisplayNameFor(model => model.ClassName)</h5> </th>
+                                <th> <h5 style="margin-left:100px ;color:white"> Options </h5> </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <h7 style="margin-left:100px"> @Html.DisplayFor(modelItem => item.ClassName)</h7>
+                                    </td>
+                                    <td >
+                                        <h7 style="margin-left:100px">
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.ClassId }) |
+
+                                            @Html.ActionLink("Details", "Details", new { id = item.ClassId }) |
+
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.ClassId })
+                                        </h7>
+
+</td>
+                                </tr>
+                             }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/assetsjs/jquery.min.js"></script>
+<script src="~/assets/js/popper.js"></script>
+<script src="~/assets/js/bootstrap.min.js"></script>
+<script src="~/assets/js/main.js"></script>
+
+
+
+
+@*<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <table >
+                <tr class="row header" >
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClassName)
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr class="row">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClassName)
+                        </td>
+                        <td style="text-align:center" >
+                            <h5> @Html.ActionLink("Edit", "Edit", new { id = item.ClassId }) </h5>
+                            <h5>
+                                @Html.ActionLink("Details", "Details", new { id = item.ClassId })
+                            </h5>
+                            <h5>  @Html.ActionLink("Delete", "Delete", new { id = item.ClassId })</h5>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    </div>*@

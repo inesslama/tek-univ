@@ -1,0 +1,81 @@
+﻿@model StudentManagementNV.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layoutstd.cshtml";
+}
+
+<main id="main">
+
+
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                         class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form runat="server" action="Login" method="post">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-outline mb-4">
+                            @*@Html.LabelFor(model => model.StudentId, htmlAttributes: new { @class = "form-control form-control-lg", placeholder = "Enter Your ID" })*@
+                            @Html.EditorFor(model => model.StudentId, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = " Enter your ID" } })
+                            @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+
+                        </div>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+
+
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = " Enter your email" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+
+                            @*@Html.LabelFor(model => model.password, htmlAttributes: new { @class = "form-control form-control-lg", placeholder = "Enter password" })*@
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = " Enter your Password" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+
+
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Checkbox -->
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                    <label class="form-check-label" for="form2Example3">
+                                        Remember me
+                                    </label>
+                                </div>
+
+                                <a href="#!" class="text-body">Forgot password?</a>
+                            </div>
+
+                            <div class="text-center text-lg-start mt-4 pt-2">
+
+                                <!--<-->@*Button OnClick="login_Click" id="login" style="padding-left: 2.5rem; padding-right: 2.5rem;" runat="server" Text="login" class="btn btn-primary btn-lg"
+                                    type="button-log" />*@
+                                <button class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" type="submit">
+                                    Login
+                                </button>
+                                @*<input type="submit" value="Login" class="btn btn-block btn-default" style="padding-left: 2.5rem; padding-right: 2.5rem;" />*@
+                                @*<button onclick="location.href='@Url.Action("IndexStudent", "Students")'">Login</button>*@
+
+                              
+
+                            </div>
+
+                    </form>
+
+                </div>
+
+    </section>
+
+
+</main>
+
